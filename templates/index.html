@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Django 99 Utilities Starter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: { DEFAULT: '#00897B', light: '#4DB6AC', dark: '#00695C' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-[#00897B] text-white shadow">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <span class="text-xl font-bold tracking-tight">Django 99 Utilities Starter</span>
+      <a href="https://django.wiki" target="_blank" rel="noopener noreferrer"
+         class="text-white underline hover:text-green-100 text-sm">django.wiki</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="bg-[#00897B] text-white pb-12 pt-8">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold mb-3">Django 99 Utilities Starter Project</h1>
+      <p class="text-lg text-green-100 max-w-xl mx-auto">
+        Follow along with the book. Paste utilities, test in shell, explore the models.
+      </p>
+    </div>
+  </section>
+
+  <main class="max-w-6xl mx-auto px-4 py-10 flex-1 w-full">
+
+    <!-- Stats -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-5 text-gray-700">Database Stats</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
+          <div class="text-4xl font-bold text-[#00897B]">{{ total_products }}</div>
+          <div class="text-gray-500 mt-1 text-sm">Total Products</div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
+          <div class="text-4xl font-bold text-[#00897B]">{{ total_orders }}</div>
+          <div class="text-gray-500 mt-1 text-sm">Total Orders</div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
+          <div class="text-4xl font-bold text-[#00897B]">{{ total_categories }}</div>
+          <div class="text-gray-500 mt-1 text-sm">Total Categories</div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
+          <div class="text-4xl font-bold text-[#00897B]">{{ total_users }}</div>
+          <div class="text-gray-500 mt-1 text-sm">Total Users</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-5 text-gray-700">Quick Links</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <a href="https://gumroad.com/l/django99utilities" target="_blank" rel="noopener noreferrer"
+           class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:border-[#00897B] hover:shadow-md transition block">
+          <div class="text-[#00897B] font-semibold text-base mb-1">Buy the Book</div>
+          <div class="text-gray-500 text-sm">Get Django 99 Utilities on Gumroad</div>
+        </a>
+        <a href="https://django.wiki" target="_blank" rel="noopener noreferrer"
+           class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:border-[#00897B] hover:shadow-md transition block">
+          <div class="text-[#00897B] font-semibold text-base mb-1">Read the Docs</div>
+          <div class="text-gray-500 text-sm">Full documentation at django.wiki</div>
+        </a>
+        <a href="https://github.com/Ahmad/django99utils-starter" target="_blank" rel="noopener noreferrer"
+           class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:border-[#00897B] hover:shadow-md transition block">
+          <div class="text-[#00897B] font-semibold text-base mb-1">GitHub Repo</div>
+          <div class="text-gray-500 text-sm">Source code and issue tracker</div>
+        </a>
+        <a href="/admin" target="_blank" rel="noopener noreferrer"
+           class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:border-[#00897B] hover:shadow-md transition block">
+          <div class="text-[#00897B] font-semibold text-base mb-1">Admin Panel</div>
+          <div class="text-gray-500 text-sm">Browse seeded data visually admin/admin123</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- How to Test Utils -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-5 text-gray-700">How to Test Utils</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+          <div class="text-[#00897B] font-semibold mb-2">Option 1 — Django Shell</div>
+          <p class="text-gray-600 text-sm mb-3">
+            Open the Django shell and paste any utility directly from the book to test it immediately.
+          </p>
+          <code class="bg-gray-100 text-gray-700 text-xs px-3 py-2 rounded block">python manage.py shell</code>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+          <div class="text-[#00897B] font-semibold mb-2">Option 2 — Utils Files</div>
+          <p class="text-gray-600 text-sm">
+            Paste utilities into the matching file in <code class="bg-gray-100 px-1 rounded">utils/</code>.
+            Each file maps to a category (queries, models, managers, views, etc.).
+            Then import and use them in your views, models, or shell.
+          </p>
+        </div>
+      </div>
+    </section>
+<!-- Utils Categories -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-5 text-gray-700">Utils Categories</h2>
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+        <p class="text-gray-500 text-sm mb-5">
+          Each file in <code class="bg-gray-100 px-1 rounded">utils/</code> maps to a chapter in the book.
+          Paste the utility code into the matching file and import it where needed.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+          {% for category in categories %}
+          <div class="flex items-center gap-2 text-sm text-gray-700">
+            <span class="text-[#00897B] font-bold">→</span>
+            <code class="bg-gray-100 px-2 py-1 rounded text-xs">{{ category }}</code>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+     <!-- Shell Example -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-5 text-gray-700">Full Shell Example</h2>
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+        <p class="text-gray-500 text-sm mb-5">
+          Here is a complete example using <code class="bg-gray-100 px-1 rounded">get_or_none</code> from the Query Utilities chapter.
+          Follow the same pattern for any utility in the book.
+        </p>
+ 
+        <!-- Step 1 -->
+        <div class="mb-6">
+          <div class="text-[#00897B] font-semibold text-sm mb-2">Step 1 — Paste the utility into the matching file</div>
+          <p class="text-gray-500 text-xs mb-2">File: <code class="bg-gray-100 px-1 rounded">utils/query.py</code></p>
+          <pre class="bg-[#1e1e1e] text-[#d4d4d4] text-xs rounded-lg p-4 overflow-x-auto leading-relaxed"><code><span class="text-[#c586c0]">from</span> django.db.models <span class="text-[#c586c0]">import</span> Model
+<span class="text-[#c586c0]">from</span> typing <span class="text-[#c586c0]">import</span> Type, TypeVar
+ 
+T = TypeVar(<span class="text-[#ce9178]">"T"</span>, bound=Model)
+ 
+<span class="text-[#c586c0]">def</span> <span class="text-[#dcdcaa]">get_or_none</span>(model: Type[T], **kwargs) -> T | <span class="text-[#569cd6]">None</span>:
+    <span class="text-[#c586c0]">try</span>:
+        <span class="text-[#c586c0]">return</span> model.objects.get(**kwargs)
+    <span class="text-[#c586c0]">except</span> model.DoesNotExist:
+        <span class="text-[#c586c0]">return</span> <span class="text-[#569cd6]">None</span></code></pre>
+        </div>
+ 
+        <!-- Step 2 -->
+        <div class="mb-6">
+          <div class="text-[#00897B] font-semibold text-sm mb-2">Step 2 — Open the Django shell</div>
+          <pre class="bg-[#1e1e1e] text-[#d4d4d4] text-xs rounded-lg p-4 overflow-x-auto leading-relaxed"><code>python manage.py shell</code></pre>
+        </div>
+ 
+        <!-- Step 3 -->
+        <div class="mb-2">
+          <div class="text-[#00897B] font-semibold text-sm mb-2">Step 3 — Import and test</div>
+          <pre class="bg-[#1e1e1e] text-[#d4d4d4] text-xs rounded-lg p-4 overflow-x-auto leading-relaxed"><code><span class="text-[#6a9955]"># import the utility you just pasted</span>
+<span class="text-[#c586c0]">from</span> shop.utils.query <span class="text-[#c586c0]">import</span> get_or_none
+ 
+<span class="text-[#6a9955]"># import a model from the starter project</span>
+<span class="text-[#c586c0]">from</span> shop.models <span class="text-[#c586c0]">import</span> Product
+ 
+<span class="text-[#6a9955]"># test it — product exists (seed_data created 20 products)</span>
+product = get_or_none(Product, id=<span class="text-[#b5cea8]">1</span>)
+<span class="text-[#dcdcaa]">print</span>(product)  <span class="text-[#6a9955]"># returns Product object</span>
+ 
+<span class="text-[#6a9955]"># test it — product does not exist</span>
+missing = get_or_none(Product, id=<span class="text-[#b5cea8]">99999</span>)
+<span class="text-[#dcdcaa]">print</span>(missing)  <span class="text-[#6a9955]"># returns None instead of raising DoesNotExist</span></code></pre>
+        </div>
+ 
+        <p class="text-gray-400 text-xs mt-4">
+          Follow the same three steps for every utility in the book. Paste into the matching utils file, open the shell, import and test.
+        </p>
+      </div>
+    </section>
+ 
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 py-5 text-center text-gray-500 text-sm">
+    Built by Ahmad &middot;
+    <a href="https://django.wiki" target="_blank" rel="noopener noreferrer" class="text-[#00897B] hover:underline">django.wiki</a>
+    &middot; Django 99 Utilities
+  </footer>
+
+</body>
+</html>
