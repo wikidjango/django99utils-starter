@@ -7,8 +7,7 @@ Use this project to follow along with the book, paste utilities, and test them a
 ---
 
 ## Buy the Book
-
-[Django 99 Utilities on Gumroad](https://djangoist8.gumroad.com/l/django-99-utilities) 
+[Django 99 Utilities on Gumroad](https://djangowiki.gumroad.com/l/django-99-utilities) 
 
 ---
 
